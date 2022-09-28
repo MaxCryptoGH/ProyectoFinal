@@ -26,9 +26,10 @@
 
     <header class="masthead bg-dark text-white text-center">
         <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="{{user.avatar.imagen.url}}" alt="">
+
+            <!-- Masthead Avatar Image--><img class="img-fluid rounded-circle mb-4 px-4" style="width: 250px; height:200px;" src="{{user.avatar.imagen.url}}" alt="">
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading mb-0">Bienvenido de nuevo {{ user.username }} </h1>
+            <h1 class="masthead-heading mb-0">Bienvenido de nuevo {{ user.username }}</h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light">
                 <div class="divider-custom-line"></div>
@@ -43,9 +44,6 @@
               <p></p>              
               <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'sign_out' %}">Cerrar sesión <i class='fa fa-power-off'></i></a>
               <p></p>
-
-
-        
         </div>
     </header>
 </body>
@@ -56,8 +54,16 @@
 
 
 {% else %}
+<body id="page-top">
 
-<a href="{% url 'sign_up' %}">Registrate</a>
-<a href="{% url 'sign_in' %}">Iniciar sesión</a>
+  <header class="masthead bg-dark text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+      <p></p>
+      <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'sign_up' %}">Registrate<i class='fa fa-power-off'></i></a>
+      <p></p>
+      <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'sign_in' %}">Iniciar sesión<i class='fa fa-power-off'></i></a>
+      <p></p>
+    <div>
+
 {% endif %} {% endblock content %}
 

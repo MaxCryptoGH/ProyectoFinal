@@ -12,6 +12,10 @@
                     <p class="lead mb-0">Entérate de las noticias relevantes del mundo del cine</p>
                 </div>
             </div>
+            <div align="center">
+                <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'crear_articulo' %}">Crear artículo</a>
+
+   <p></p>
         </header>
 
     {% for lista in listas %} 
@@ -23,8 +27,9 @@
                 <div align="center">
                     <!-- Featured blog post-->
                     <div class="card mb-3" style="width: 55rem" align="left">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>  <!--//TODO meterle lista.imagen -->
-
+                        {% if lista.imagen %}
+                        <a href="#!"><img class="card-img-top" img src="{{lista.imagen.url}}" alt="..." /></a>  <!--//TODO meterle lista.imagen -->
+                        {% endif %}
                         <div class="card-body">
                             <div class="small text-muted">{{lista.fecha}}</div>
                             <h2 class="card-title">{{lista.titulo}}</h2>
@@ -34,18 +39,10 @@
                         </div>
                     </div>
                 </div>
-    {% endfor %}
-                
-                <div align="center">
-                            <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'crear_articulo' %}">Crear artículo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                                        <p></p>
-
-                </div>
             </div>
         </div>
+
+    {% endfor %}
+
 
 {% endblock contenido_base %}

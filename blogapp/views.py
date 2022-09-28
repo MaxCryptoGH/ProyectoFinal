@@ -30,7 +30,8 @@ def articulo(request):
             art = formArticulo(titulo=data['titulo'],
                                creador=data['creador'],
                                fecha=data['fecha'],
-                               contenido=data['contenido'])
+                               contenido=data['contenido'],
+                               imagen=request.FILES['txtImagen'])
             art.save()
             return render(request, "blogapp/blog.html", {'exitoso': True})
     else:
