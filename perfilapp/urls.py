@@ -10,5 +10,6 @@ urlpatterns = [
     path("bienvenida/", BienvenidaView.as_view(), name="bienvenida"),
     path("cerrar-sesion/", SignOutView.as_view(), name="sign_out"),
     path("registrate/", SignUpView.as_view(), name="sign_up"),
+    path("agregar-avatar/", views.agregar_avatar, name="agregar_avatar"),
 
 ]

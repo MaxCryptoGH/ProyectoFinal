@@ -3,8 +3,10 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LoginView
 from django.views.generic import CreateView, TemplateView
 from .models import Perfil
-from .forms import SignUpForm
+from django.urls import reverse, reverse_lazy
+from .forms import SignUpForm, AvatarFormulario
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.decorators import login_required
 
 
 class SignUpView(CreateView):
@@ -34,3 +36,19 @@ class SignInView(LoginView):
 
 class SignOutView(LogoutView):
     pass
+
+
+@login_required
+def agregar_avatar(request):
+    if request.method == 'POST':
+
+        form = AvatarFormulario(request.POST, request.FILES)
+
+        if form.is_valid:
+            avatar = form.save()
+            avatar.user = request.user
+            avatar = form.save()
+            return redirect(reverse('bienvenida'))
+
+    form = AvatarFormulario()
+    return render(request, 'perfilapp/form_avatar.html', {'form': form})
