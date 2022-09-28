@@ -3,23 +3,61 @@
 {%block content %} 
 {% if user.is_authenticated %}
 
-<h1>Hola {{ user.username }}</h1>
-<h1>Tu correo es: {{ user.email }}</h1>
-<div class="col mb-5 mb-5 mb-sm-0">
-  <div class="text-left">
-    <img
-      class="img-fluid mb-2 px-2"
-      style="height: 300px; width: 300px; object-fit: scale-down"
-      src="{{user.avatar.imagen.url}}"
-      <li class="nav-item"><a class="nav-link" href="{% url 'agregar_avatar' %}">Crea tu avatar</a></li>
+<!DOCTYPE html>
+<html lang="en">
 
-    />
-  </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Freelancer - Start Bootstrap Theme</title>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles2.css" rel="stylesheet">
+    <!-- Fonts CSS-->
+    <link rel="stylesheet" href="css/heading.css">
+    <link rel="stylesheet" href="css/body.css">
+</head>
+
+<body id="page-top">
+
+    <header class="masthead bg-dark text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+            <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="{{user.avatar.imagen.url}}" alt="">
+            <!-- Masthead Heading-->
+            <h1 class="masthead-heading mb-0">Bienvenido de nuevo {{ user.username }} </h1>
+            <!-- Icon Divider-->
+            <div class="divider-custom divider-light">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Masthead Subheading-->
+            <p class="pre-wrap masthead-subheading font-weight-light mb-0">{{ user.email }}</p>      
+              <p></p>              
+              <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'agregar_avatar' %}">Crea tu avatar <i class='fas fa-grin-tongue-squint'></i>
+              </a>
+              <p></p>              
+              <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'sign_out' %}">Cerrar sesión <i class='fa fa-power-off'></i></a>
+              <p></p>
+
+
+        
+        </div>
+    </header>
+</body>
+</html>
+      
+<div class="container">
 </div>
-<a href="{% url 'sign_out' %}">Cerrar sesión</a>
+
 
 {% else %}
 
 <a href="{% url 'sign_up' %}">Registrate</a>
 <a href="{% url 'sign_in' %}">Iniciar sesión</a>
 {% endif %} {% endblock content %}
+
