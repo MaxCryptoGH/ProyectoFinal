@@ -46,7 +46,6 @@
               <p></p>
         </div>
     </header>
-</body>
 </html>
       
 <div class="container">
@@ -55,15 +54,25 @@
 
 {% else %}
 <body id="page-top">
+    <header class="masthead bg-dark text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
 
-  <header class="masthead bg-dark text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
-      <p></p>
-      <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'sign_up' %}">Registrate<i class='fa fa-power-off'></i></a>
-      <p></p>
-      <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'sign_in' %}">Iniciar sesión<i class='fa fa-power-off'></i></a>
-      <p></p>
-    <div>
+            <div class="container">
+                 <div class="text-center my-5">
+                    <h1 class="fw-bolder">Accede o regístrate</h1>
+                    <p></p>
+
+                    <table>
+                        <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'sign_up' %}">Registrate<i class='fa fa-power-off'></i></a>
+                        <p></p>
+                        <a class="btn btn-primary btn-lg px-6 me-sm-6" href="{% url 'sign_in' %}">Iniciar sesión<i class='fa fa-power-off'></i></a>
+                    </table>
+                    <p></p>
+                 </div>
+            </div>
+        </div>
+    </header>
+</body>
 
 {% endif %} {% endblock content %}
 

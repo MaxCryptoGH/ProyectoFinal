@@ -1,14 +1,18 @@
 {% extends "perfilapp\plantilla_base.html" %} 
 
-{% block title %} Registrate {% endblock %} 
 
 {% block content %}
 
 
 <form action="" method="POST" enctype="multipart/form-data">
+  <div align="center">
+    <h1 class="fw-bolder">Registrate</h1>
   {% csrf_token %} 
+  <table>
   {{ form.as_p }}
-  <input type="submit" name="submit" />
+  </table>
+  <input class="btn btn-primary btn-lg px-3 me-sm-2" type="submit" value="Enviar" />
+</div>
 </form>
 
 {% endblock content %}

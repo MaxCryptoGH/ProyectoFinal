@@ -32,9 +32,9 @@
                 <!-- Blog entries-->
                 <div align="center">
                     <!-- Featured blog post-->
-                    <div class="card mb-3" style="width: 55rem" align="left">
+                    <div class="card mb-3" style="width: 50rem" align="left">
                         {% if lista.imagen %}
-                        <a href="#!"><img class="card-img-top" img src="{{lista.imagen.url}}" alt="..." /></a>  <!--//TODO meterle lista.imagen -->
+                        <a href="#!"><img class="card-img-top" style="height:30rem" img src="{{lista.imagen.url}}" alt="..." /></a>  <!--//TODO meterle lista.imagen -->
                         {% endif %}
                         <div class="card-body">
                             <div class="small text-muted">{{lista.fecha}}</div>
