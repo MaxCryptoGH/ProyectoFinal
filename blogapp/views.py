@@ -11,10 +11,6 @@ def inicio(request):
     return render(request, "blogapp/inicio.html")
 
 
-def blog(request):
-    return render(request, "blogapp/blog.html")
-
-
 def media(request):
     pass
 
@@ -22,7 +18,7 @@ def media(request):
 def about(request):
     return render(request, "blogapp/about.html")
 
-# formulario artículo
+# formulario para crear artículo
 
 
 def articulo(request):
@@ -41,4 +37,8 @@ def articulo(request):
         forma = crearArticulo()
     return render(request, "blogapp/crear_articulo.html", {"crear_articulo": forma})
 
-    # return render(request, "blogapp/crear_articulo.html")
+
+# View para mostrar el artículo
+def mostrarArticulo(request):
+    listas = formArticulo.objects.all()
+    return render(request, "blogapp/blog.html", {"listas": listas})
