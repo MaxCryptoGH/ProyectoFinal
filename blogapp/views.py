@@ -40,6 +40,6 @@ def articulo(request):
 
 
 # View para mostrar el artículo
-def mostrarArticulo(request):
+def blog(request):
     listas = formArticulo.objects.all()
     return render(request, "blogapp/blog.html", {"listas": listas})
