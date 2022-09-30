@@ -41,7 +41,7 @@
                             <h2 class="card-title">{{lista.titulo}}</h2>
                             <h4 class="card-title">{{lista.creador}}</h4>
                             <p class="card-text">{{lista.contenido}}</p>
-                            <a class="btn btn-primary" href="#!">Leer más →</a>
+                            <a href="{% url 'eliminar_art' lista.id %}" class="btn btn-second btn-lg px-6 me-sm-6">Eliminar →</a>
                         </div>
                     </div>
                 </div>

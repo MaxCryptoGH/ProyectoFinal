@@ -5,16 +5,17 @@
 
 <p></p>
 <form method="post" enctype="multipart/form-data">
-    <h1>Formulario de articulos</h1>
-    <p></p>  
-{% csrf_token %}
-<table>
-{{ crear_articulo.as_table }}
-</table>
-<p>
+    <div align="center">        
+        <h1 class="fw-bolder">Formulario de articulos</h1>
+            <p></p>  
+            {% csrf_token %}
+            <table>
+            {{ crear_articulo.as_table }}
+            </table>
+            <p>
     <label>Imagen</label>
     <input type="file" name="txtImagen" id="txtImagen">
-
+<p></p>
 <input class="btn btn-primary btn-lg px-3 me-sm-2" type="submit" value="Enviar" />
 
 </p>

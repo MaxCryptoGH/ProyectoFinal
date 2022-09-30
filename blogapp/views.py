@@ -1,6 +1,6 @@
-from importlib.metadata import requires
-from django.shortcuts import render
-
+from django.forms import PasswordInput
+from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse, reverse_lazy
 from blogapp.models import formArticulo
 from blogapp.forms import crearArticulo
 
@@ -17,6 +17,10 @@ def media(request):
 
 def about(request):
     return render(request, "blogapp/about.html")
+
+
+def borrado(request):
+    return render(request, "blogapp/borrado.html")
 
 # formulario para crear artículo
 
@@ -39,7 +43,18 @@ def articulo(request):
     return render(request, "blogapp/crear_articulo.html", {"crear_articulo": forma})
 
 
-# View para mostrar el artículo
+# --------------------------View para mostrar el artículo--------------------------
 def blog(request):
     listas = formArticulo.objects.all()
     return render(request, "blogapp/blog.html", {"listas": listas})
+
+# --------------------------------------------------------------------------------
+
+
+def eliminar_art(request, id):
+    art = get_object_or_404(formArticulo, id=id)
+    art.delete()
+
+    return render(request, "blogapp/borrado.html", {'exitoso': True})
+
+# --------------------------------------------------------------------------------
